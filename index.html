@@ -36,11 +36,20 @@
             }
         }
         
-        /* Better mobile background positioning */
+        /* Mobile-specific background handling */
         @media (max-width: 768px) {
             .hero {
-                background-position: center center;
-                background-size: cover;
+                height: auto;
+                min-height: 100vh;
+                background-size: contain;
+                background-position: top center;
+                background-repeat: no-repeat;
+                background-color: #0a5f5f;
+                padding: 40px 20px;
+            }
+            
+            .hero-content {
+                margin-top: 60%;
             }
         }
 
