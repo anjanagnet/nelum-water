@@ -21,13 +21,27 @@
         .hero {
             height: 100vh;
             background: url('hero-bg.jpeg') center center/cover no-repeat;
-            background-attachment: fixed;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             overflow: hidden;
+        }
+        
+        /* Parallax effect only on larger screens */
+        @media (min-width: 769px) {
+            .hero {
+                background-attachment: fixed;
+            }
+        }
+        
+        /* Better mobile background positioning */
+        @media (max-width: 768px) {
+            .hero {
+                background-position: center center;
+                background-size: cover;
+            }
         }
 
         .hero::before {
@@ -306,8 +320,8 @@
                 </svg> -->
             </div>
             <!-- <h1>Nelum Water</h1>
-            <p>Purified water for healthy life...</p> -->
-            <a href="#contact" class="cta-button">Contact Us Today</a>
+            <p>Purified water for healthy life...</p>
+            <a href="#contact" class="cta-button">Contact Us Today</a> -->
         </div>
         <div class="scroll-indicator">
             <svg width="30" height="50" viewBox="0 0 30 50">
