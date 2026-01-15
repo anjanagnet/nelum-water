@@ -20,7 +20,7 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: url('hero-bg.jpeg') center center/cover no-repeat;
+            background: linear-gradient(135deg, #0a5f5f 0%, #1a8f8f 50%, #2ebfbf 100%);
             position: relative;
             display: flex;
             align-items: center;
@@ -29,18 +29,35 @@
             overflow: hidden;
         }
         
-        /* Parallax effect only on larger screens */
+        /* Desktop: Use image background with parallax */
         @media (min-width: 769px) {
             .hero {
+                background: url('hero-bg.jpeg') center center/cover no-repeat;
                 background-attachment: fixed;
             }
         }
         
-        /* Better mobile background positioning */
+        /* Mobile: Gradient only */
         @media (max-width: 768px) {
             .hero {
-                background-position: center center;
+                background: linear-gradient(135deg, #0a5f5f 0%, #1a8f8f 50%, #2ebfbf 100%);
+            }
+            
+            .hero::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path d="M0,300 Q300,200 600,300 T1200,300 L1200,600 L0,600 Z" fill="rgba(255,255,255,0.1)"/></svg>') no-repeat bottom;
                 background-size: cover;
+                animation: wave 8s ease-in-out infinite;
+                z-index: 1;
+            }
+            
+            .hero-content {
+                z-index: 2;
             }
         }
 
@@ -320,8 +337,8 @@
                 </svg> -->
             </div>
             <!-- <h1>Nelum Water</h1>
-            <p>Purified water for healthy life...</p>
-            <a href="#contact" class="cta-button">Contact Us Today</a> -->
+            <p>Purified water for healthy life...</p> -->
+            <a href="#contact" class="cta-button">Contact Us Today</a>
         </div>
         <div class="scroll-indicator">
             <svg width="30" height="50" viewBox="0 0 30 50">
